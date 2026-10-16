@@ -1,0 +1,47 @@
+# OpusLoomV2 — fresh Pi Durable agent harness
+# (Stack assumptions deferred to first ADR.)
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Node (most likely per R1-Q1 = fresh Pi Durable)
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+coverage/
+.npm/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Runtime state (Pi Durable SQLite by default)
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+.pocket.sqlite
+pocket.sqlite
+agent.sqlite
+worktrees/
+sessions/
+chats/
+
+# Logs
+*.log
+logs/
+
+# Build artifacts (compiled binaries, etc.)
+target/
+*.exe
+*.dll
+*.so
+*.dylib
