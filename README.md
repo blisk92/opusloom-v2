@@ -26,7 +26,7 @@ stories against a live UI.
 
 - **Runtime:** Node 24 + TypeScript (executed via `tsx`)
 - **Backend:** Express + Pi Durable 1.0.x
-- **Frontend:** Vue 3 (Composition API) + Vite
+- **Frontend:** Vue 3 (Composition API) + Vite + `vue-flow` (graph UI)
 - **Storage:** SQLite via Pi Durable's `openNodeSqliteStorage`
 - **Live updates:** Server-Sent Events (SSE) with commit coalescing
 - **Testing:** Node's built-in test runner + scripted LLM
@@ -42,8 +42,21 @@ Pocket's pattern.
 Early. Design tree walked; code not started. See:
 
 - [GLOSSARY.md](./GLOSSARY.md) — canonical vocabulary
-- [docs/adr/](./docs/adr/) — 22 architectural decision records (one
+- [docs/adr/](./docs/adr/) — 23 architectural decision records (one
   per significant design decision, sequenced)
+
+## Graph UI
+
+Two pages, both rendered with `vue-flow` over the same SDLC topology:
+
+- **`/system`** — the SDLC state machine with live ticket counts
+  per state. Click a state to drill into the Kanban filtered to it.
+- **`/tickets/:id`** — per-ticket phase graph. The ticket's
+  `defineTask` phases, with the current phase highlighted and past
+  phases showing their checkpoint summaries. Sibling panel: per-phase
+  conversation snippets, attempts counter, recycle history.
+
+See ADR 0023 for the design.
 
 ## Working agreements
 
